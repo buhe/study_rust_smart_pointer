@@ -1,4 +1,4 @@
-use std::ops::Deref;
+use std::{ops::Deref, f32};
 
 use crate::generic::Point;
 mod generic;
@@ -38,4 +38,8 @@ fn main() {
     let p = Point { x: 5, y: 10 };
 
     println!("p.x = {}", p.x());
+
+    let f = Point{x: 5.1 as f32, y: 6.1 as f32};
+
+    println!("f.d = {}", f.distance_from_origin())
 }
