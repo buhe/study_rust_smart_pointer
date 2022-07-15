@@ -1,5 +1,7 @@
 use std::ops::Deref;
 
+use crate::generic::Point;
+mod generic;
 impl<T> Deref for MyBox<T> {
     type Target = T;
 
@@ -33,4 +35,7 @@ fn main() {
     let r3 = &mut s; // 没问题
     println!("{}", r3);
 
+    let p = Point { x: 5, y: 10 };
+
+    println!("p.x = {}", p.x());
 }
