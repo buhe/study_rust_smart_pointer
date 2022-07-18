@@ -6,3 +6,9 @@ pub fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
         y
     }
 }
+
+
+pub fn longest2<'a>(x: &'a str, _y: &str) -> &'a str {
+    x
+}
+
