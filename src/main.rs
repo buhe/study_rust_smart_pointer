@@ -1,7 +1,8 @@
 use std::{ops::Deref, f32};
 
-use crate::generic::Point;
+use crate::{generic::Point, lifetime::longest};
 mod generic;
+mod lifetime;
 impl<T> Deref for MyBox<T> {
     type Target = T;
 
@@ -64,4 +65,10 @@ fn main() {
 
     let result = largest(&char_list);
     println!("The largest char is {}", result);
+
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {}", result);
 }
