@@ -31,12 +31,19 @@ fn largest<T: PartialOrd>(list: &[T]) -> &T {
     largest
 }
 
+fn use_ref(_r: Box<i32>) {
+
+}
+
 fn main() {
     let x = 5;
     let y = MyBox::new(x);
+    let z = Box::new(3);
 
     assert_eq!(5, x);
     assert_eq!(5, *y);
+
+    use_ref(z);
 
     let mut s = String::from("hello");
 
