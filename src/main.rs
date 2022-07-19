@@ -1,9 +1,10 @@
 use std::{ops::Deref, f32, fmt::Debug};
 
-use crate::{generic::Point, lifetime::{longest, longest2}};
+use crate::{generic::Point, lifetime::{longest, longest2}, thread::join1};
 mod generic;
 mod lifetime;
 mod smart_pointer;
+mod thread;
 impl<T: Debug> Drop for MyBox<T> {
     fn drop(&mut self) {
         println!("{:#?} leave.", self.0);
@@ -88,4 +89,6 @@ fn main() {
     println!("The longest string is {}", result);
 
     longest2(string1.as_str(), string2);
+
+    join1();
 }
