@@ -1,9 +1,14 @@
-use std::{ops::Deref, f32};
+use std::{ops::Deref, f32, fmt::Debug};
 
 use crate::{generic::Point, lifetime::{longest, longest2}};
 mod generic;
 mod lifetime;
-impl<T> Deref for MyBox<T> {
+impl<T: Debug> Drop for MyBox<T> {
+    fn drop(&mut self) {
+        println!("{:#?} leave.", self.0);
+    }
+}
+impl<T: Debug> Deref for MyBox<T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -11,9 +16,9 @@ impl<T> Deref for MyBox<T> {
     }
 }
 
-struct MyBox<T>(T);
+struct MyBox<T: Debug>(T);
 
-impl<T> MyBox<T> {
+impl<T: Debug> MyBox<T> {
     fn new(x: T) -> MyBox<T> {
         MyBox(x)
     }
