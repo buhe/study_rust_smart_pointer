@@ -1,6 +1,6 @@
 use std::{ops::Deref, f32, fmt::Debug};
 
-use crate::{generic::Point, lifetime::{longest, longest2}, thread::join1, channel::channel1};
+use crate::{generic::Point, lifetime::{longest, longest2}, thread::{join1, arc1}, channel::channel1};
 mod generic;
 mod lifetime;
 mod smart_pointer;
@@ -94,5 +94,7 @@ fn main() {
     join1();
 
     channel1();
+
+    arc1();
 
 }
