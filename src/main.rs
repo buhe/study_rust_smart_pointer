@@ -50,6 +50,8 @@ fn main() {
 
     use_ref(z);
 
+    drop(y);
+
     let mut s = String::from("hello");
 
     let r1 = &s; // 没问题
