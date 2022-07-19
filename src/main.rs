@@ -1,10 +1,11 @@
 use std::{ops::Deref, f32, fmt::Debug};
 
-use crate::{generic::Point, lifetime::{longest, longest2}, thread::join1};
+use crate::{generic::Point, lifetime::{longest, longest2}, thread::join1, channel::channel1};
 mod generic;
 mod lifetime;
 mod smart_pointer;
 mod thread;
+mod channel;
 impl<T: Debug> Drop for MyBox<T> {
     fn drop(&mut self) {
         println!("{:#?} leave.", self.0);
@@ -91,4 +92,7 @@ fn main() {
     longest2(string1.as_str(), string2);
 
     join1();
+
+    channel1();
+
 }
