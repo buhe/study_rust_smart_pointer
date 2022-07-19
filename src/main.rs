@@ -3,6 +3,7 @@ use std::{ops::Deref, f32, fmt::Debug};
 use crate::{generic::Point, lifetime::{longest, longest2}};
 mod generic;
 mod lifetime;
+mod smart_pointer;
 impl<T: Debug> Drop for MyBox<T> {
     fn drop(&mut self) {
         println!("{:#?} leave.", self.0);
